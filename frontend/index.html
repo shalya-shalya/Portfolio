@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shalya A | Full-Stack Developer</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">Shalya<span>Dev</span></div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="hero" class="hero-section">
+    <div class="hero-content">
+      <h1>Full-Stack<br><span class="highlight">Developer</span></h1>
+      <p class="subtitle">CSE Student @ Canara Engineering College</p>
+      <p class="description">Passionate about Software Development, DSA & System Design. Building digital experiences that merge creativity with robust technology.</p>
+      
+      <!-- Direct LinkedIn Profile Link -->
+      <a href="https://www.linkedin.com/in/shalya-a-a7011132b" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Let's Connect on LinkedIn 🔗
+      </a>
+    </div>
+    
+    <div class="hero-image-container">
+      <div class="image-glow">
+        <img src="images/profile.jpg.jpeg" alt="Shalya A" class="profile-img" onerror="this.src='https://via.placeholder.com/300/101010/00ff88?text=Shalya+A'">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Technical Expertise / Skills -->
+    <section id="skills" class="section">
+      <h2 class="section-title">Technical Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="icon">&lt;/&gt;</div>
+          <h3>Frontend Development</h3>
+          <p>HTML5, CSS3, JavaScript (ES6+), Responsive Design</p>
+        </div>
+        <div class="skill-card">
+          <div class="icon">⚙️</div>
+          <h3>Backend & Core</h3>
+          <p>Node.js, Express.js, REST APIs, Python, Data Structures & Algorithms</p>
+        </div>
+        <div class="skill-card">
+          <div class="icon">🗄️</div>
+          <h3>Database & Tools</h3>
+          <p>MySQL, MongoDB, Git/GitHub, Postman, System Design</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real Projects Section -->
+    <section id="projects" class="section">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        
+        <div class="card">
+          <h3>E-Commerce Web Application</h3>
+          <p>Full-stack web platform built for online shopping, featuring interactive product catalog browsing, cart handling, and responsive user interfaces.</p>
+          <div>
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Node.js</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Satvam Product Management System</h3>
+          <p>Web application designed for managing product inventories, catalog updates, and streamlined backend data workflows.</p>
+          <div>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">HTML/CSS</span>
+            <span class="tech-tag">Express.js</span>
+            <span class="tech-tag">REST API</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Student Management System</h3>
+          <p>Database-driven web platform designed to streamline student registration, record tracking, and academic information management.</p>
+          <div>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">HTML/CSS</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Full-Stack Web Portfolio</h3>
+          <p>Personal dark-themed developer portfolio designed to present software projects and technical skills, integrated with Express REST APIs.</p>
+          <div>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Express</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">HTML5/CSS3</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="section">
+      <h2 class="section-title">Get In Touch</h2>
+      <form id="contact-form" class="dark-form">
+        <div class="form-group">
+          <input type="text" id="name" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-group">
+          <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+      <p id="form-status"></p>
+
+      <div style="margin-top: 25px;">
+        <p style="color: #94a3b8; margin-bottom: 10px;">Or connect directly via social profile:</p>
+        <a href="https://www.linkedin.com/in/shalya-a-a7011132b" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          View LinkedIn Profile 🔗
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Shalya A. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
