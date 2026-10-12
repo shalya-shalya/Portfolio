@@ -123,51 +123,64 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative z-10 max-w-7xl mx-auto px-6 pt-14 pb-28 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[85vh]">
-        <div class="lg:col-span-7 space-y-7">
-            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#7E69E8]/40 bg-[#7E69E8]/10 text-[#7E69E8] text-xs font-semibold tracking-wide">
-                <span class="w-2 h-2 rounded-full bg-[#FF5A5F] animate-pulse"></span>
+   <!-- Hero Section -->
+    <section class="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[90vh]">
+        <!-- Left Text Column -->
+        <div class="lg:col-span-7 space-y-6 z-10">
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-sky-400/30 bg-sky-500/10 text-sky-300 text-xs font-semibold tracking-wide backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
                 Full Stack & Deep Tech Engineering
             </div>
             
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
-                Building next-gen web systems with <span class="bg-gradient-to-r from-[#7E69E8] via-[#a895f9] to-[#FF5A5F] bg-clip-text text-transparent">power & precision.</span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
+                Building next-gen web systems with <span class="bg-gradient-to-r from-sky-300 via-indigo-300 to-[#FF5A5F] bg-clip-text text-transparent">power & precision.</span>
             </h1>
             
-            <p class="text-lg text-zinc-400 max-w-xl leading-relaxed">
+            <p class="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed">
                 Hi, I'm Shalya. I architect scalable full-stack applications with React, Node.js, and modern AI integrations, turning complex engineering into effortless digital experiences.
             </p>
 
-            <div class="flex flex-wrap gap-4 pt-3">
+            <div class="flex flex-wrap gap-4 pt-2">
                 <a href="#contact" class="bg-[#FF5A5F] hover:bg-[#e84c51] text-white px-7 py-3.5 rounded-xl font-semibold text-sm shadow-lg shadow-[#FF5A5F]/35 transition transform hover:-translate-y-0.5">
                     Get in touch
                 </a>
-                <a href="https://github.com/shalya-shalya" target="_blank" class="px-7 py-3.5 rounded-xl font-semibold text-sm bg-[#110e19] border border-[#7E69E8]/30 hover:border-[#7E69E8] hover:text-[#7E69E8] transition">
+                <a href="https://github.com/shalya-shalya" target="_blank" class="px-7 py-3.5 rounded-xl font-semibold text-sm bg-slate-900/80 border border-sky-400/20 text-slate-200 hover:border-sky-400 hover:text-white transition">
                     GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/shalya-a-a7011132b" target="_blank" class="px-7 py-3.5 rounded-xl font-semibold text-sm bg-[#110e19] border border-[#7E69E8]/30 hover:border-[#7E69E8] hover:text-[#7E69E8] transition">
+                <a href="https://www.linkedin.com/in/shalya-a-a7011132b" target="_blank" class="px-7 py-3.5 rounded-xl font-semibold text-sm bg-slate-900/80 border border-sky-400/20 text-slate-200 hover:border-sky-400 hover:text-white transition">
                     LinkedIn
                 </a>
             </div>
         </div>
 
-        <!-- 3D Character Canvas -->
-        <div class="lg:col-span-5 relative h-[420px] sm:h-[480px] w-full flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-tr from-[#7E69E8]/15 via-[#FF5A5F]/10 to-transparent rounded-3xl border border-white/10 backdrop-blur-3xl -z-10 shadow-2xl"></div>
-            
-            <!-- Three.js target canvas -->
-            <canvas id="three-canvas" class="w-full h-full opacity-0 transition-opacity duration-700"></canvas>
-            
-            <!-- Custom UI Loading Overlay while models buffer -->
-            <div id="loader-ui" class="absolute inset-0 flex flex-col items-center justify-center space-y-4">
-                <div class="spinner"></div>
-                <p class="text-xs font-mono text-zinc-500 tracking-widest animate-pulse">BOOTING Interactive 3D SCENE...</p>
-            </div>
-            
-            <div class="absolute bottom-4 left-6 text-[11px] font-mono text-zinc-500 pointer-events-none flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                <span>Interactive 3D Host • Head Tracks Cursor</span>
+        <!-- Right 3D Parallax Character Stage -->
+        <div class="lg:col-span-5 relative w-full flex items-center justify-center py-6" style="perspective: 1200px;">
+            <!-- Ambient Room Glow that matches the artwork's screen lighting -->
+            <div id="ambient-stage-glow" class="absolute -inset-4 bg-gradient-to-tr from-cyan-500/20 via-indigo-600/20 to-transparent rounded-[2.5rem] blur-2xl pointer-events-none transition-opacity duration-300"></div>
+
+            <!-- Parallax Outer Frame -->
+            <div id="character-card" class="relative w-full max-w-[430px] aspect-[4/5] rounded-3xl overflow-hidden border border-sky-400/30 bg-[#0B0F19] shadow-[0_25px_60px_-15px_rgba(8,15,30,0.9)] cursor-pointer will-change-transform">
+                
+                <!-- Anime Girl Image with continuous parallax zoom -->
+                <img id="character-img" 
+                     src="assests/images/hero-girl.png" 
+                     alt="Developer Coding" 
+                     class="w-full h-full object-cover object-center select-none will-change-transform">
+
+                <!-- Dynamic Laptop Cyan Glow Overlay -->
+                <div id="screen-glow" class="absolute inset-0 bg-gradient-to-t from-cyan-400/25 via-transparent to-transparent pointer-events-none mix-blend-screen opacity-70"></div>
+
+                <!-- Floating Code Badge -->
+                <div class="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md border border-cyan-400/30 px-3 py-1 rounded-full text-[11px] font-mono text-cyan-300 flex items-center gap-1.5 shadow-lg">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <span>focus: deep_work.ts</span>
+                </div>
+
+                <!-- Status Pill -->
+                <div class="absolute bottom-4 left-4 bg-slate-950/85 backdrop-blur-md border border-slate-700/60 px-3 py-1.5 rounded-xl text-xs font-mono text-slate-300 flex items-center gap-2 shadow-lg">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span>Tracking Cursor</span>
+                </div>
             </div>
         </div>
     </section>
@@ -354,245 +367,71 @@
 
     <!-- Image validation feedback & dynamic visual engine -->
     <script>
-        // Photo checker utility
-        const img = document.querySelector('img[src="images/image.jpg"]');
-        if (img) {
-            img.onerror = function() {
-                console.warn("Main image.jpg not found inside /images/ folder, applying visual fallback.");
-                this.style.opacity = '0.35';
-                this.parentElement.style.background = 'linear-gradient(135deg, #7E69E8 0%, #FF5A5F 100%)';
-            };
+        // Smooth 3D Interpolation Tracking for Hero Character
+        const heroCard = document.getElementById('character-card');
+        const heroImg = document.getElementById('character-img');
+        const screenGlow = document.getElementById('screen-glow');
+
+        let targetRotX = 0;
+        let targetRotY = 0;
+        let currentRotX = 0;
+        let currentRotY = 0;
+
+        let targetImgX = 0;
+        let targetImgY = 0;
+        let currentImgX = 0;
+        let currentImgY = 0;
+
+        function onPointerMove(e) {
+            const x = e.clientX || (e.touches && e.touches[0].clientX) || window.innerWidth / 2;
+            const y = e.clientY || (e.touches && e.touches[0].clientY) || window.innerHeight / 2;
+
+            // Normalize coordinates from -1 to 1 across the screen
+            const normX = (x / window.innerWidth - 0.5) * 2;
+            const normY = (y / window.innerHeight - 0.5) * 2;
+
+            // Target angles
+            targetRotY = normX * 16;  // Tilt left-right up to 16 deg
+            targetRotX = -normY * 14; // Tilt up-down up to 14 deg
+
+            // Image moves slightly inverse to the card to create true 2.5D depth
+            targetImgX = -normX * 18;
+            targetImgY = -normY * 14;
+
+            if (screenGlow) {
+                screenGlow.style.opacity = `${0.5 + Math.abs(normX) * 0.4}`;
+            }
         }
 
-        // 1. Cursor Follower & Global Dynamic Radial Glow
-        const cursor = document.getElementById('cursor-follower');
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        let cursorX = mouseX;
-        let cursorY = mouseY;
+        window.addEventListener('mousemove', onPointerMove, { passive: true });
+        window.addEventListener('touchmove', onPointerMove, { passive: true });
 
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            document.documentElement.style.setProperty('--mouse-x', `${(mouseX / window.innerWidth) * 100}%`);
-            document.documentElement.style.setProperty('--mouse-y', `${(mouseY / window.innerHeight) * 100}%`);
+        // Smooth physics loop
+        function renderParallax() {
+            // Lerp dampening (0.08 = ultra smooth movement)
+            currentRotX += (targetRotX - currentRotX) * 0.08;
+            currentRotY += (targetRotY - currentRotY) * 0.08;
+
+            currentImgX += (targetImgX - currentImgX) * 0.08;
+            currentImgY += (targetImgY - currentImgY) * 0.08;
+
+            if (heroCard && heroImg) {
+                heroCard.style.transform = `rotateX(${currentRotX}deg) rotateY(${currentRotY}deg)`;
+                heroImg.style.transform = `scale(1.12) translate3d(${currentImgX}px, ${currentImgY}px, 0)`;
+            }
+
+            requestAnimationFrame(renderParallax);
+        }
+
+        renderParallax();
+
+        // Reset to center smoothly when mouse leaves
+        window.addEventListener('mouseleave', () => {
+            targetRotX = 0;
+            targetRotY = 0;
+            targetImgX = 0;
+            targetImgY = 0;
         });
-
-        function animateCursor() {
-            cursorX += (mouseX - cursorX) * 0.15;
-            cursorY += (mouseY - cursorY) * 0.15;
-            if (cursor) {
-                cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
-            }
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // 2. 3D Tilt Effect on Cards
-        const tiltCards = document.querySelectorAll('.tilt-card');
-        tiltCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = ((y - centerY) / centerY) * -8;
-                const rotateY = ((x - centerX) / centerX) * 8;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-            });
-        });
-
-        // 3. Three.js: Import, Animate, and Enable Responsive Mouse-Tracking for 3D Character
-        const canvas = document.getElementById('three-canvas');
-        const loaderUi = document.getElementById('loader-ui');
-
-        if (canvas) {
-            const scene = new THREE.Scene();
-            
-            // Adjust camera view
-            const camera = new THREE.PerspectiveCamera(38, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
-            camera.position.set(0, 1.6, 4.3); // Optimal framing for seated laptop configuration
-
-            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            renderer.outputEncoding = THREE.sRGBEncoding;
-
-            // Environmental Cinematic Lighting
-            const ambient = new THREE.AmbientLight(0x241d45, 1.5);
-            scene.add(ambient);
-
-            const deskPointLight = new THREE.PointLight(0x7E69E8, 4, 10);
-            deskPointLight.position.set(-1.5, 2.5, 1.5); // Rich periwinkle overhead bounce
-            scene.add(deskPointLight);
-
-            const fillPointLight = new THREE.PointLight(0xFF5A5F, 3.2, 8);
-            fillPointLight.position.set(2, 1, -1); // Accent coral backlighting
-            scene.add(fillPointLight);
-
-            const directLight = new THREE.DirectionalLight(0xffffff, 1.2);
-            directLight.position.set(1, 4, 3);
-            scene.add(directLight);
-
-            // Group holding full 3D interactive desk model 
-            const modelGroup = new THREE.Group();
-            scene.add(modelGroup);
-
-            // Bones to isolate for real-time cursor tracking
-            let neckBone = null;
-            let headBone = null;
-            let spineBone = null;
-            let mixer = null;
-
-            // Target vector updated by mouse moving around page bounds
-            const targetPointer = new THREE.Vector3();
-            let normMouseX = 0;
-            let normMouseY = 0;
-
-            window.addEventListener('mousemove', (e) => {
-                // Calculate position relative to viewport centers (-1 to +1 range)
-                normMouseX = (e.clientX / window.innerWidth) * 2 - 1;
-                normMouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-            });
-
-            // Initialize GLTF importer to read 3D girl setup
-            const loader = new THREE.GLTFLoader();
-            
-            // NOTE: Replace this path with your local rigged model once uploaded (or leave as fallback)
-            const fallbackModelUrl = 'https://vazxmixjsiawhamvopru.supabase.co/storage/v1/object/public/models/girl-working-laptop/model.gltf';
-
-            loader.load(
-                fallbackModelUrl,
-                (gltf) => {
-                    const model = gltf.scene;
-                    
-                    // Center and scale to anchor sitting configuration appropriately
-                    model.position.set(0, -0.65, 0.2);
-                    model.scale.set(0.9, 0.9, 0.9);
-                    model.rotation.y = -0.3; // Slight angle for optimal aesthetic depth
-                    
-                    modelGroup.add(model);
-
-                    // Search armature bone definitions for skeleton tracking
-                    model.traverse((o) => {
-                        if (o.isBone) {
-                            const name = o.name.toLowerCase();
-                            if (name.includes('neck')) neckBone = o;
-                            if (name.includes('head')) headBone = o;
-                            if (name.includes('spine') && !spineBone) spineBone = o;
-                        }
-                    });
-
-                    // Setup fallback bones in case hierarchical naming differs
-                    if (!headBone && neckBone) headBone = neckBone;
-
-                    // Play ambient idling/typing loops packaged in model if they exist
-                    if (gltf.animations && gltf.animations.length) {
-                        mixer = new THREE.AnimationMixer(model);
-                        const animation = gltf.animations[0];
-                        const action = mixer.clipAction(animation);
-                        action.play();
-                    }
-
-                    // Reveal 3D view, extinguish spinner UI once buffered
-                    canvas.classList.remove('opacity-0');
-                    if (loaderUi) loaderUi.style.display = 'none';
-                },
-                (xhr) => {
-                    // Loading progress can be tracked here
-                },
-                (error) => {
-                    console.error('3D Import error, rendering expressive placeholder:', error);
-                    // Generate visually satisfying default cyber props so hero canvas doesn't stay vacant
-                    generateGeometricProp(modelGroup);
-                    canvas.classList.remove('opacity-0');
-                    if (loaderUi) loaderUi.style.display = 'none';
-                }
-            );
-
-            // Generates beautiful animated 3D visual cluster if complex characters don't resolve
-            function generateGeometricProp(group) {
-                const geometry = new THREE.IcosahedronGeometry(1.5, 2);
-                
-                const meshMaterial = new THREE.MeshPhongMaterial({
-                    color: 0x7E69E8,
-                    emissive: 0x241d45,
-                    shininess: 95,
-                    flatShading: true
-                });
-                const mesh = new THREE.Mesh(geometry, meshMaterial);
-                mesh.position.set(0, 0.2, 0);
-                group.add(mesh);
-
-                const wireMaterial = new THREE.MeshBasicMaterial({
-                    color: 0xFF5A5F,
-                    wireframe: true,
-                    transparent: true,
-                    opacity: 0.35
-                });
-                const wireMesh = new THREE.Mesh(geometry, wireMaterial);
-                wireMesh.scale.set(1.03, 1.03, 1.03);
-                wireMesh.position.copy(mesh.position);
-                group.add(wireMesh);
-            }
-
-            // Loop parameters for responsive physics dampening
-            const clock = new THREE.Clock();
-            let headTargetY = 0;
-            let headTargetX = 0;
-
-            function animate() {
-                requestAnimationFrame(animate);
-
-                const delta = clock.getDelta();
-                if (mixer) mixer.update(delta);
-
-                // Target Head Coordinates (Eased tracking values)
-                const lookLimitX = 0.55; // Clamped bounding angles prevents un-anatomical snapping
-                const lookLimitY = 0.4;
-
-                // Damp target coordinates
-                headTargetY += (normMouseX * lookLimitX - headTargetY) * 0.08;
-                headTargetX += (normMouseY * lookLimitY - headTargetX) * 0.08;
-
-                // Map mouse-coordinates directly onto 3D Neck/Head joints if rigs are loaded and matched
-                if (headBone) {
-                    // Applying Euler changes tracking cursor orientation
-                    headBone.rotation.y = headTargetY; 
-                    headBone.rotation.x = -headTargetX; 
-                }
-                if (neckBone) {
-                    neckBone.rotation.y = headTargetY * 0.35;
-                    neckBone.rotation.x = -headTargetX * 0.35;
-                }
-                if (spineBone) {
-                    spineBone.rotation.y = headTargetY * 0.15;
-                }
-
-                // Smooth back-and-forth idle breathing logic to ensure scene feels alive
-                const time = clock.getElapsedTime();
-                modelGroup.position.y = Math.sin(time * 0.9) * 0.02;
-
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            // Screen Resize Handler 
-            window.addEventListener('resize', () => {
-                const width = canvas.clientWidth;
-                const height = canvas.clientHeight;
-                camera.aspect = width / height;
-                camera.updateProjectionMatrix();
-                renderer.setSize(width, height);
-            });
-        }
     </script>
 </body>
 </html>
