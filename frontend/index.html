@@ -1,149 +1,513 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shalya A | Full-Stack Developer</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="logo">Shalya<span>Dev</span></div>
-    <ul class="nav-links">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero Section -->
-  <header id="hero" class="hero-section">
-    <div class="hero-content">
-      <h1>Full-Stack<br><span class="highlight">Developer</span></h1>
-      <p class="subtitle">CSE Student @ Canara Engineering College</p>
-      <p class="description">Passionate about Software Development, DSA & System Design. Building digital experiences that merge creativity with robust technology.</p>
-      
-      <!-- Direct LinkedIn Profile Link -->
-      <a href="https://www.linkedin.com/in/shalya-a-a7011132b" target="_blank" rel="noopener noreferrer" class="btn-primary">
-        Let's Connect on LinkedIn 🔗
-      </a>
-    </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shalya A. | Full Stack Developer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Three.js for 3D interactive graphics -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
-    <div class="hero-image-container">
-      <div class="image-glow">
-        <img src="images/profile.jpg.jpeg" alt="Shalya A" class="profile-img" onerror="this.src='https://via.placeholder.com/300/101010/00ff88?text=Shalya+A'">
-      </div>
-    </div>
-  </header>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        periwinkle: '#7E69E8',
+                        'pure-black': '#000000',
+                        coral: '#FF5A5F'
+                    }
+                }
+            }
+        }
+    </script>
 
-  <main>
-    <!-- Technical Expertise / Skills -->
-    <section id="skills" class="section">
-      <h2 class="section-title">Technical Expertise</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="icon">&lt;/&gt;</div>
-          <h3>Frontend Development</h3>
-          <p>HTML5, CSS3, JavaScript (ES6+), Responsive Design</p>
-        </div>
-        <div class="skill-card">
-          <div class="icon">⚙️</div>
-          <h3>Backend & Core</h3>
-          <p>Node.js, Express.js, REST APIs, Python, Data Structures & Algorithms</p>
-        </div>
-        <div class="skill-card">
-          <div class="icon">🗄️</div>
-          <h3>Database & Tools</h3>
-          <p>MySQL, MongoDB, Git/GitHub, Postman, System Design</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Real Projects Section -->
-    <section id="projects" class="section">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="projects-grid">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
         
-        <div class="card">
-          <h3>E-Commerce Web Application</h3>
-          <p>Full-stack web platform built for online shopping, featuring interactive product catalog browsing, cart handling, and responsive user interfaces.</p>
-          <div>
-            <span class="tech-tag">HTML5</span>
-            <span class="tech-tag">CSS3</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">Node.js</span>
-          </div>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #000000;
+            color: #FAF9F6;
+            overflow-x: hidden;
+        }
+
+        /* Luxury Glassmorphism */
+        .glass-card {
+            background: rgba(12, 10, 18, 0.75);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(126, 105, 232, 0.15);
+            transform-style: preserve-3d;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease-out;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 90, 95, 0.45);
+            box-shadow: 0 20px 40px -12px rgba(126, 105, 232, 0.25);
+        }
+
+        /* Reactive Mouse Radial Spotlight */
+        .glow-spotlight {
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(126, 105, 232, 0.14) 0%, transparent 60%);
+        }
+
+        /* Periodic Stack Element */
+        .periodic-item {
+            background: rgba(18, 14, 26, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .periodic-item:hover {
+            transform: translateY(-4px) scale(1.03);
+            border-color: #FF5A5F;
+            background: rgba(255, 90, 95, 0.12);
+            box-shadow: 0 10px 20px -5px rgba(255, 90, 95, 0.2);
+        }
+
+        /* Fluid Mouse Halo */
+        #cursor-follower {
+            pointer-events: none;
+            transition: transform 0.08s ease-out, opacity 0.2s ease;
+        }
+    </style>
+</head>
+<body class="selection:bg-[#FF5A5F] selection:text-white relative bg-[#000000]">
+
+    <!-- Fluid Cursor Halo -->
+    <div id="cursor-follower" class="fixed w-9 h-9 rounded-full border border-[#FF5A5F]/60 -top-4 -left-4 z-50 pointer-events-none hidden md:block shadow-[0_0_15px_rgba(255,90,95,0.4)]"></div>
+
+    <!-- Ambient Periwinkle & Coral Atmospheric Glows -->
+    <div class="fixed inset-0 pointer-events-none z-0 glow-spotlight" id="global-glow"></div>
+    <div class="fixed -top-24 left-1/4 w-[600px] h-[600px] bg-[#7E69E8]/15 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="fixed bottom-1/4 -right-16 w-[500px] h-[500px] bg-[#FF5A5F]/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <header class="sticky top-0 z-40 bg-[#000000]/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#7E69E8] to-[#FF5A5F] text-white font-extrabold flex items-center justify-center text-sm shadow-lg shadow-[#7E69E8]/30 group-hover:scale-105 transition">S</span>
+                <span class="font-bold tracking-tight text-lg group-hover:text-[#7E69E8] transition">Shalya A.</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-400">
+                <a href="#about" class="hover:text-white transition">About</a>
+                <a href="#skills" class="hover:text-white transition">Skills</a>
+                <a href="#work" class="hover:text-white transition">Work</a>
+                <a href="#experience" class="hover:text-white transition">Experience</a>
+                <a href="#contact" class="hover:text-white transition">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="https://github.com/shalya-shalya" target="_blank" class="text-xs font-semibold px-4 py-2 rounded-lg bg-[#110e19] border border-[#7E69E8]/30 hover:border-[#FF5A5F] hover:text-[#FF5A5F] transition">
+                    GitHub ↗
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 max-w-7xl mx-auto px-6 pt-14 pb-28 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[85vh]">
+        <div class="lg:col-span-7 space-y-7">
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#7E69E8]/40 bg-[#7E69E8]/10 text-[#7E69E8] text-xs font-semibold tracking-wide">
+                <span class="w-2 h-2 rounded-full bg-[#FF5A5F] animate-pulse"></span>
+                Full Stack & Deep Tech Engineering
+            </div>
+            
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
+                Building next-gen web systems with <span class="bg-gradient-to-r from-[#7E69E8] via-[#a895f9] to-[#FF5A5F] bg-clip-text text-transparent">power & precision.</span>
+            </h1>
+            
+            <p class="text-lg text-zinc-400 max-w-xl leading-relaxed">
+                Hi, I'm Shalya. I architect scalable full-stack applications with React, Node.js, and modern AI integrations, turning complex engineering into effortless digital experiences.
+            </p>
+
+            <div class="flex flex-wrap gap-4 pt-3">
+                <a href="#contact" class="bg-[#FF5A5F] hover:bg-[#e84c51] text-white px-7 py-3.5 rounded-xl font-semibold text-sm shadow-lg shadow-[#FF5A5F]/35 transition transform hover:-translate-y-0.5">
+                    Get in touch
+                </a>
+                <a href="https://github.com/shalya-shalya" target="_blank" class="px-7 py-3.5 rounded-xl font-semibold text-sm bg-[#110e19] border border-[#7E69E8]/30 hover:border-[#7E69E8] hover:text-[#7E69E8] transition">
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/shalya-a-a7011132b" target="_blank" class="px-7 py-3.5 rounded-xl font-semibold text-sm bg-[#110e19] border border-[#7E69E8]/30 hover:border-[#7E69E8] hover:text-[#7E69E8] transition">
+                    LinkedIn
+                </a>
+            </div>
         </div>
 
-        <div class="card">
-          <h3>Satvam Product Management System</h3>
-          <p>Web application designed for managing product inventories, catalog updates, and streamlined backend data workflows.</p>
-          <div>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">HTML/CSS</span>
-            <span class="tech-tag">Express.js</span>
-            <span class="tech-tag">REST API</span>
-          </div>
+        <!-- 3D Interactive Canvas -->
+        <div class="lg:col-span-5 relative h-[420px] sm:h-[480px] w-full flex items-center justify-center">
+            <div class="absolute inset-0 bg-gradient-to-tr from-[#7E69E8]/15 via-[#FF5A5F]/10 to-transparent rounded-3xl border border-white/10 backdrop-blur-3xl -z-10 shadow-2xl"></div>
+            <canvas id="three-canvas" class="w-full h-full cursor-grab active:cursor-grabbing"></canvas>
+            <div class="absolute bottom-4 left-6 text-[11px] font-mono text-zinc-500 pointer-events-none">
+                Interactive 3D Geometry • Drag to rotate
+            </div>
         </div>
-
-        <div class="card">
-          <h3>Student Management System</h3>
-          <p>Database-driven web platform designed to streamline student registration, record tracking, and academic information management.</p>
-          <div>
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">HTML/CSS</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Full-Stack Web Portfolio</h3>
-          <p>Personal dark-themed developer portfolio designed to present software projects and technical skills, integrated with Express REST APIs.</p>
-          <div>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">Express</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">HTML5/CSS3</span>
-          </div>
-        </div>
-
-      </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section id="contact" class="section">
-      <h2 class="section-title">Get In Touch</h2>
-      <form id="contact-form" class="dark-form">
-        <div class="form-group">
-          <input type="text" id="name" placeholder="Your Name" required />
-        </div>
-        <div class="form-group">
-          <input type="email" id="email" placeholder="Your Email" required />
-        </div>
-        <div class="form-group">
-          <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-        </div>
-        <button type="submit" class="btn-primary">Send Message</button>
-      </form>
-      <p id="form-status"></p>
+    <!-- About Section with Your Photo -->
+    <section id="about" class="relative z-10 max-w-7xl mx-auto px-6 py-20 border-t border-white/10">
+        <span class="text-xs font-mono font-bold tracking-widest text-[#7E69E8] uppercase">01 // About Me</span>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-8 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Full-Stack Precision Meets Engineering Logic.</h2>
+                <p class="text-zinc-400 leading-relaxed text-base">
+                    Motivated Full Stack Developer skilled in building scalable applications with React, Node.js, and modern backend architectures. Strong in API development, system design, and AI-driven workflows.
+                </p>
 
-      <div style="margin-top: 25px;">
-        <p style="color: #94a3b8; margin-bottom: 10px;">Or connect directly via social profile:</p>
-        <a href="https://www.linkedin.com/in/shalya-a-a7011132b" target="_blank" rel="noopener noreferrer" class="btn-primary">
-          View LinkedIn Profile 🔗
-        </a>
-      </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="tilt-card glass-card p-6 rounded-2xl">
+                        <span class="text-xs font-mono text-[#7E69E8] font-medium">Role</span>
+                        <h4 class="font-bold text-white text-lg mt-1">Full Stack Developer</h4>
+                        <p class="text-zinc-400 text-xs mt-1">End-to-end architectures, robust backends, and modular UI.</p>
+                    </div>
+                    <div class="tilt-card glass-card p-6 rounded-2xl">
+                        <span class="text-xs font-mono text-[#FF5A5F] font-medium">Focus</span>
+                        <h4 class="font-bold text-white text-lg mt-1">Deep Tech & AI</h4>
+                        <p class="text-zinc-400 text-xs mt-1">Intelligent mock interviews, AI pipelines, and interactive web tools.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Developer ID Card with Your Photo Restored -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="tilt-card glass-card rounded-3xl p-7 w-full max-w-md relative overflow-hidden border border-[#7E69E8]/30 shadow-2xl">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-xs font-mono text-zinc-400 tracking-wider">DEVELOPER ID</span>
+                        <span class="bg-[#FF5A5F]/15 text-[#FF5A5F] border border-[#FF5A5F]/30 text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#FF5A5F] animate-pulse"></span>
+                            Active
+                        </span>
+                    </div>
+
+                    <div class="flex items-center space-x-5">
+                        <!-- Photo container with your image -->
+                        <div class="w-20 h-20 rounded-2xl bg-zinc-900 border-2 border-[#7E69E8]/50 overflow-hidden flex items-center justify-center shadow-lg relative shrink-0">
+                           <img src="assests/images/image.jpg" alt="Shalya A." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-xl text-white">SHALYA A.</h3>
+                            <p class="text-xs text-[#7E69E8] font-mono mt-0.5 font-medium">Computer Science Engineer</p>
+                            <p class="text-[12px] text-zinc-400 mt-1">Canara Engineering College</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-5 border-t border-white/10 flex justify-between text-xs font-mono text-zinc-400">
+                        <span>VTU CSE</span>
+                        <span class="text-[#FF5A5F]">Deep Tech / Fullstack</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer>
-    <p>&copy; 2026 Shalya A. All rights reserved.</p>
-  </footer>
+    <!-- Skills Periodic Stack -->
+    <section id="skills" class="relative z-10 max-w-7xl mx-auto px-6 py-20 border-t border-white/10">
+        <span class="text-xs font-mono font-bold tracking-widest text-[#7E69E8] uppercase">02 // Stack</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">The Periodic Table of My Stack</h2>
+        <p class="text-zinc-400 text-sm mt-1">Core languages, frameworks, and engineering tools.</p>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-3 mt-8">
+            <div class="periodic-item p-4 rounded-xl text-center cursor-pointer">
+                <span class="text-[10px] text-zinc-500 font-mono block">01</span>
+                <span class="font-bold text-sm text-zinc-200 mt-1 block">Java</span>
+            </div>
+            <div class="periodic-item p-4 rounded-xl text-center cursor-pointer">
+                <span class="text-[10px] text-zinc-500 font-mono block">02</span>
+                <span class="font-bold text-sm text-zinc-200 mt-1 block">C++</span>
+            </div>
+            <div class="periodic-item p-4 rounded-xl text-center cursor-pointer">
+                <span class="text-[10px] text-zinc-500 font-mono block">03</span>
+                <span class="font-bold text-sm text-zinc-200 mt-1 block">Python</span>
+            </div>
+            <div class="periodic-item p-4 rounded-xl text-center cursor-pointer">
+                <span class="text-[10px] text-zinc-500 font-mono block">04</span>
+                <span class="font-bold text-sm text-zinc-200 mt-1 block">JavaScript</span>
+            </div>
+            <div class="periodic-item p-4 rounded-xl text-center cursor-pointer">
+                <span class="text-[10px] text-zinc-500 font-mono block">05</span>
+                <span class="font-bold text-sm text-zinc-200 mt-1 block">React.js</span>
+            </div>
+            <div class="periodic-item p-4 rounded-xl text-center cursor-pointer">
+                <span class="text-[10px] text-zinc-500 font-mono block">06</span>
+                <span class="font-bold text-sm text-zinc-200 mt-1 block">Node.js</span>
+            </div>
+            <div class="periodic-item p-4 rounded-xl text-center cursor-pointer">
+                <span class="text-[10px] text-zinc-500 font-mono block">07</span>
+                <span class="font-bold text-sm text-zinc-200 mt-1 block">MongoDB</span>
+            </div>
+            <div class="periodic-item p-4 rounded-xl text-center cursor-pointer">
+                <span class="text-[10px] text-zinc-500 font-mono block">08</span>
+                <span class="font-bold text-sm text-zinc-200 mt-1 block">Git</span>
+            </div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- Work Section with 3D Tilt Cards -->
+    <section id="work" class="relative z-10 max-w-7xl mx-auto px-6 py-20 border-t border-white/10">
+        <span class="text-xs font-mono font-bold tracking-widest text-[#7E69E8] uppercase">03 // Work</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Things I've Built</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+            <!-- Project 1 -->
+            <div class="tilt-card glass-card rounded-3xl p-8 flex flex-col justify-between group">
+                <div>
+                    <span class="text-[11px] font-mono font-bold text-[#7E69E8] tracking-wider uppercase">01 // Full Stack Web</span>
+                    <h3 class="text-2xl font-bold text-white mt-2 group-hover:text-[#FF5A5F] transition">Campus Connect</h3>
+                    <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
+                        A full-stack web platform designed to search student profiles, skills, schedules, and send real-time connection notifications.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-8">
+                    <span class="text-xs bg-white/5 border border-white/10 text-zinc-300 px-3 py-1 rounded-lg font-mono">React</span>
+                    <span class="text-xs bg-white/5 border border-white/10 text-zinc-300 px-3 py-1 rounded-lg font-mono">Node.js</span>
+                    <span class="text-xs bg-white/5 border border-white/10 text-zinc-300 px-3 py-1 rounded-lg font-mono">MongoDB</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="tilt-card glass-card rounded-3xl p-8 flex flex-col justify-between group">
+                <div>
+                    <span class="text-[11px] font-mono font-bold text-[#7E69E8] tracking-wider uppercase">02 // Mobile AI App</span>
+                    <h3 class="text-2xl font-bold text-white mt-2 group-hover:text-[#FF5A5F] transition">Mock AI</h3>
+                    <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
+                        Cross-platform mobile application built using Flutter and React Native for conducting automated AI-driven video and voice mock interviews.
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-8">
+                    <span class="text-xs bg-white/5 border border-white/10 text-zinc-300 px-3 py-1 rounded-lg font-mono">Flutter</span>
+                    <span class="text-xs bg-white/5 border border-white/10 text-zinc-300 px-3 py-1 rounded-lg font-mono">React Native</span>
+                    <span class="text-xs bg-white/5 border border-white/10 text-zinc-300 px-3 py-1 rounded-lg font-mono">AI APIs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="relative z-10 max-w-7xl mx-auto px-6 py-20 border-t border-white/10">
+        <span class="text-xs font-mono font-bold tracking-widest text-[#7E69E8] uppercase">04 // Experience</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Education & Experience</h2>
+
+        <div class="mt-10 space-y-5 max-w-3xl">
+            <div class="tilt-card glass-card rounded-2xl p-6 border-l-4 border-l-[#7E69E8]">
+                <span class="text-xs text-[#7E69E8] font-mono">2025 — 2028</span>
+                <h3 class="text-lg font-bold text-white mt-1">B.E. Computer Science & Engineering</h3>
+                <p class="text-sm text-zinc-400 mt-0.5">Canara Engineering College (Visvesvaraya Technological University)</p>
+            </div>
+
+            <div class="tilt-card glass-card rounded-2xl p-6 border-l-4 border-l-[#FF5A5F]">
+                <span class="text-xs text-[#FF5A5F] font-mono">Sixth Semester Diploma</span>
+                <h3 class="text-lg font-bold text-white mt-1">Software Intern</h3>
+                <p class="text-sm text-zinc-400 mt-0.5">CodeLabs in Jyoti</p>
+            </div>
+
+            <div class="tilt-card glass-card rounded-2xl p-6 border-l-4 border-l-zinc-600">
+                <span class="text-xs text-zinc-500 font-mono">Completed 2025</span>
+                <h3 class="text-lg font-bold text-white mt-1">Diploma in Computer Science & Engineering</h3>
+                <p class="text-sm text-zinc-400 mt-0.5">Vivekananda Polytechnic College</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Footer -->
+    <footer id="contact" class="relative z-10 bg-[#000000] border-t border-white/10 py-20 mt-16">
+        <div class="max-w-7xl mx-auto px-6 text-center space-y-6">
+            <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">Let's connect and build something amazing together.</h2>
+            <p class="text-zinc-400 text-sm max-w-md mx-auto">Feel free to reach out for collaborations, opportunities, or just a friendly chat.</p>
+            <div class="pt-4">
+                <a href="mailto:shalyaaammu@gmail.com" class="inline-block bg-[#FF5A5F] hover:bg-[#e84c51] text-white font-bold px-8 py-3.5 rounded-xl transition shadow-xl shadow-[#FF5A5F]/25 hover:scale-105">
+                    Get in touch
+                </a>
+            </div>
+            <div class="pt-12 text-xs font-mono text-zinc-600">
+                &copy; 2026 Shalya A. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three.js 3D & Mouse Physics -->
+    <script>
+        // 1. Cursor Follower & Global Dynamic Radial Glow
+        const cursor = document.getElementById('cursor-follower');
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let cursorX = mouseX;
+        let cursorY = mouseY;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            document.documentElement.style.setProperty('--mouse-x', `${(mouseX / window.innerWidth) * 100}%`);
+            document.documentElement.style.setProperty('--mouse-y', `${(mouseY / window.innerHeight) * 100}%`);
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+            if (cursor) {
+                cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+            }
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // 2. 3D Tilt Effect on Cards
+        const tiltCards = document.querySelectorAll('.tilt-card');
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -8;
+                const rotateY = ((x - centerX) / centerX) * 8;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        });
+
+        // 3. Three.js 3D Interactive Scene with the Periwinkle & Coral Scheme
+        const canvas = document.getElementById('three-canvas');
+        if (canvas) {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+            camera.position.z = 4.5;
+
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // Core Geometry
+            const geometry = new THREE.IcosahedronGeometry(1.6, 2);
+            
+            // Periwinkle Base Mesh (#7E69E8)
+            const material = new THREE.MeshPhongMaterial({
+                color: 0x7E69E8,
+                emissive: 0x241d45,
+                shininess: 95,
+                flatShading: true,
+                wireframe: false
+            });
+            const mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+
+            // Coral Red Outer Wireframe (#FF5A5F)
+            const wireframeMaterial = new THREE.MeshBasicMaterial({
+                color: 0xFF5A5F,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.35
+            });
+            const wireframeMesh = new THREE.Mesh(geometry, wireframeMaterial);
+            wireframeMesh.scale.set(1.03, 1.03, 1.03);
+            scene.add(wireframeMesh);
+
+            // Floating Background Coral/Periwinkle Particles
+            const particleCount = 140;
+            const particleGeo = new THREE.BufferGeometry();
+            const particlePositions = new Float32Array(particleCount * 3);
+
+            for (let i = 0; i < particleCount * 3; i++) {
+                particlePositions[i] = (Math.random() - 0.5) * 8;
+            }
+            particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+            const particleMat = new THREE.PointsMaterial({
+                color: 0xFF5A5F,
+                size: 0.045,
+                transparent: true,
+                opacity: 0.75
+            });
+            const particles = new THREE.Points(particleGeo, particleMat);
+            scene.add(particles);
+
+            // Lighting setup
+            const mainLight = new THREE.DirectionalLight(0xffffff, 1.3);
+            mainLight.position.set(5, 5, 5);
+            scene.add(mainLight);
+
+            // Periwinkle Ambient & Point Lights
+            const periwinkleLight = new THREE.PointLight(0x7E69E8, 2.5, 12);
+            periwinkleLight.position.set(-4, 3, 2);
+            scene.add(periwinkleLight);
+
+            // Coral Backlight
+            const coralLight = new THREE.PointLight(0xFF5A5F, 2.0, 10);
+            coralLight.position.set(3, -3, -2);
+            scene.add(coralLight);
+
+            const ambientLight = new THREE.AmbientLight(0x18122B, 1.2);
+            scene.add(ambientLight);
+
+            // Mouse Interactive Spin & Drag Physics
+            let targetRotX = 0;
+            let targetRotY = 0;
+            let isDragging = false;
+            let prevMouseX = 0;
+            let prevMouseY = 0;
+
+            window.addEventListener('mousemove', (e) => {
+                const normX = (e.clientX / window.innerWidth) - 0.5;
+                const normY = (e.clientY / window.innerHeight) - 0.5;
+                targetRotY = normX * 1.6;
+                targetRotX = normY * 1.6;
+            });
+
+            canvas.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                prevMouseX = e.clientX;
+                prevMouseY = e.clientY;
+            });
+
+            window.addEventListener('mouseup', () => { isDragging = false; });
+
+            window.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    const deltaX = e.clientX - prevMouseX;
+                    const deltaY = e.clientY - prevMouseY;
+                    mesh.rotation.y += deltaX * 0.01;
+                    mesh.rotation.x += deltaY * 0.01;
+                    wireframeMesh.rotation.y = mesh.rotation.y;
+                    wireframeMesh.rotation.x = mesh.rotation.x;
+                    prevMouseX = e.clientX;
+                    prevMouseY = e.clientY;
+                }
+            });
+
+            // Animation Loop
+            function animate() {
+                requestAnimationFrame(animate);
+
+                mesh.rotation.y += 0.003;
+                mesh.rotation.x += 0.0015;
+                
+                if (!isDragging) {
+                    mesh.rotation.y += (targetRotY - mesh.rotation.y) * 0.05;
+                    mesh.rotation.x += (targetRotX - mesh.rotation.x) * 0.05;
+                }
+
+                wireframeMesh.rotation.copy(mesh.rotation);
+                particles.rotation.y -= 0.001;
+
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // Resize handling
+            window.addEventListener('resize', () => {
+                const width = canvas.clientWidth;
+                const height = canvas.clientHeight;
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+            });
+        }
+    </script>
 </body>
 </html>
